@@ -1,0 +1,41 @@
+<body>
+
+<div class="card">
+    <h2>🔧 Welding Defect Detection</h2>
+
+    <input type="file" id="image" accept="image/*"><br><br>
+
+    <button onclick="upload()">Upload Image</button>
+
+    <div id="download" style="display:none;">
+        <p>✔ Report Generated</p>
+        <a id="downloadLink" download>
+            <button>Download PDF</button>
+        </a>
+    </div>
+</div>
+
+<script>
+function upload() {
+    const file = document.getElementById("image").files[0];
+    if (!file) {
+        alert("Please select an image");
+        return;
+    }
+
+    const formData = new FormData();
+    formData.append("file", file);
+
+    fetch("/upload/", {
+        method: "POST",
+        body: formData
+    })
+    .then(res => res.json())
+    .then(data => {
+        document.getElementById("download").style.display = "block";
+        document.getElementById("downloadLink").href = data.download_pdf;
+    });
+}
+</script>
+
+</body>
