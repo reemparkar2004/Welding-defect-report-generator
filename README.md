@@ -32,7 +32,7 @@ It also generates structured inspection reports for analysis.
 - PyTorch  
 - OpenCV  
 - NumPy  
-- Jinja2  
+
 
 ---
 
@@ -53,7 +53,6 @@ Welding-defect-report-generator/
 ├── templates/
 │ └── index.html
 │
-├── requirements.txt
 ├── README.md
 ├── .gitignore
 
